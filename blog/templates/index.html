@@ -1,0 +1,15 @@
+<form action="{% url 'about' %}">
+    <textarea name="fulltext" cols="30" rows="10"></textarea>
+    <br>
+    <input type="submit" value="commit">
+</form>
+
+<a href="{% url 'new' %}">글작성하기</a>
+
+{% for blogs in blog %}
+    <h1>{{blogs.title}}</h1>
+    <p>{{blogs.pub_date}}</p>
+    <p>{{blogs.body}}</p>
+    <p><a href="{% url 'detail' blogs.id %}">{{blogs.id}}</a></p>
+    <!--<a href="{% url 'delete' blogs.id%}">삭제하기</a>-->
+{% endfor %}
